@@ -7,30 +7,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 //http://localhost/xperthands/f7/core/api/api.php
 //http://localhost/xperthands/f7/core/api/api?type=test - test
 
-//API Test
-if($_REQUEST['type'] == "test")
-{
-	$aresult['message'] = "success";
-	$aresult['about'] = "Xperthands App API";
-	$aresult['alist'] = [1,5,2,3,4,5,6,7];
-	$aresult['city'] = array();
-	$aquery = mysql_query("Select * FROM tbl_city") or die("user check error ".mysql_error());
-	while ($row = mysql_fetch_array($aquery)) {
-	extract($row);
-	$aresult['city'][] = $cityname;
-	}
-	//$aresult['userAlertDate'] = array();
-	$aresult['userAlertMsg'] = array();
-	$aquery = mysql_query("Select * FROM tbl_alert ORDER BY sno DESC LIMIT 10") or die("user check error ".mysql_error());
-	while ($row = mysql_fetch_assoc($aquery))  {
-	$aresult['userAlertMsg'][]=$row;
-  }
 
-
-	
-echo json_encode($aresult);
-
-}
 
 
 //if((substr($_REQUEST['type'],0,6)) == "upload")
