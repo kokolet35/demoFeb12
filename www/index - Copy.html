@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--
+  Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+  Some notes:
+      * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+      * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+      * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+          * Enable inline JS: add 'unsafe-inline' to default-src
+  -->
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content:">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#000">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>Homecare</title>
+
+   <link rel="stylesheet" href="css/framework7.min.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+  <link rel="icon" href="img/f7-icon.png">
+  <link rel="stylesheet" href="css/stylesheet.css" type="text/css" charset="utf-8" />
+<style type="text/css">
+	.iconlarge
+	{	color:#2196f3;font-size:x-large;	}
+	.activeborder
+	{	border-top:2px solid #e3e1e1;	}
+	.iconlargeorange
+	{	color:#ff9800;font-size:x-large;	}
+	.icontab
+	{	color:rgb(17, 17, 17);font-size:x-large;	}
+	.iconlargeblue
+	{	color:#2196f3;font-size:x-large;	}
+	.iconform
+	{color: #e62b1e; font-size: x-large; }
+	.lblcolor
+	{color:#e62b1e !important;font-size:16px !important; }
+	.frmtxt
+	{font-size:16px !important;}
+	.iconbluesmall
+	{color: #e62b1e; /* font-size: large; */}
+	.font12
+	{font-size: 16px;}
+	.font10
+	{font-size: 14px;}
+	.font14
+	{/*font-size:14px;*/}
+	.iconblueright
+	{color: #2196f3; /* font-size: large; */}
+	.itemright
+	{	float: right;	}	
+	.custombackground
+	{	background-image:url(img/back1.jpg);background-repeat:no-repeat; background-size:cover;	}
+	.srvbackground
+	{	background-image:url(img/xph.png);background-repeat:no-repeat; background-size:contain;	}
+	.customtoolbar
+	{	border-top: 2px solid #2196f3; }
+	.prvdimg
+	{	width:60px; height:60px; border-radius:50%; border:1px solid #4caf50; padding: 2px; }
+	.custombadge
+	{ background: black; color: #fff;}
+	.customli
+	{border-bottom: 1px solid #e0e0e0; min-height:58px;font-size:16px !important;}
+	.customlix
+	{border-bottom: 1px solid #e0e0e0; font-size:16px !important;}
+	.badgefont
+	{font-size: 12px !important; }
+	.iconlarge-xx
+	{color: #dcc7c5;font-size: 250px;}
+	.titlehd
+	{font-size: 16px !important; }
+	.whitecolor
+	{color: #ffffff !important; }
+	.bluecolor
+	{color: #2196f3 !important; }
+	.bluecolor2
+	{color: #346d9a !important; }
+	.greencolor
+	{color: #4caf50 !important; }
+	.navborder
+	{height:12% !important; border-radius:0 0 20px 20px !important;box-shadow:0 5px 20px 0 rgba(0,0,0,0.15)}
+	.centerlarge
+	{display: block;  margin-left: auto;  margin-right: auto; }
+	.texthd
+	{font-size: 16px !important; text-align:center }
+	.centerimg
+	{display: block;  margin-left: auto;  margin-right: auto;  width: 100px; border-radius:50%;}
+	.centerimgprvd
+	{display: block;  margin-left: auto;  margin-right: auto;  width: 120px; height: 120px; border-radius:50%; border:1px solid #4caf50; padding: 5px;}
+	.customli3
+	{font-size:15px !important;}
+	.mediafmt
+	{width:auto; height:auto; border-radius:50%; width:80px}
+	.hline
+	{border:0px; height:1px; background-color: #4caf50;}
+	.buttonback
+	{
+	border-color: #ffffaf !important;
+	color: #ffffff !important;
+	background: #034679 !important;
+	background: linear-gradient(90deg, #2dc111 0%, #7cb5d6 100%) !important;
+	background: -webkit-gradient(linear, left top, right top, from(#2dc111), to(#7cb5d6)) !important;
+	}
+	.gradback
+	{
+	background: #034679 !important;
+	background: linear-gradient(90deg, #2dc111 0%, #7cb5d6 100%) !important;
+	background: -webkit-gradient(linear, left top, right top, from(#2dc111), to(#7cb5d6)) !important;
+	}
+	.img-margin
+	{
+	margin-top:10px;
+	margin-bottom: 10px;
+	}
+	.md .color-theme-red .progressbar-infinite:after, .md .color-theme-red .progressbar-infinite:before
+	{background:#4CAF50;}
+	.md .color-theme-red .progressbar, .md .color-theme-red .progressbar-infinite
+	{background:#03A9F4}
+	</style>
+</head>
+<body class="color-theme-red"  onload="checkState()" >
+  <div id="app">
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar"></div>
+
+    <!-- Left panel with reveal effect when hidden -->
+    <div class="panel panel-left panel-reveal">
+      <div class="view view-left">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner sliding">
+              <div class="title">Left Panel</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block-title">Left View Navigation</div>
+            <div class="list links-list">
+              <ul>
+                <li><a href="/left-page-1/">Left Page 1</a></li>
+                <li><a href="/left-page-2/">Left Page 2</a></li>
+              </ul>
+            </div>
+            <div class="block-title">Control Main View</div>
+            <div class="list links-list">
+              <ul>
+                <li>
+                  <a href="/about/" data-view=".view-main" class="panel-close">About</a>
+                </li>
+                <li>
+                  <a href="/form/" data-view=".view-main" class="panel-close">Form</a>
+                </li>
+                <li>
+                  <a href="#" data-view=".view-main" class="back">Back in history</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right panel with cover effect -->
+    <div class="panel panel-right panel-cover theme-dark">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title">Right Panel</div>
+            </div>
+          </div>
+          <div class="page-content">
+            <div class="block">Right panel content goes here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main ios-edges">
+      <!-- Page, data-name contains page name which can be used in callbacks -->
+      <div class="page" data-name="home">
+        
+        <!-- Scrollable page content-->
+       <div class="page-content" style='background-image:url(img/back1.jpg);background-repeat:no-repeat; background-size:cover;padding-top:0px'>
+          
+	   <div class="swiper-container" style="height:70%">
+			<div class="swiper-pagination"></div>
+			  <div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="img/s1.jpg"  style='display: block; margin: auto; width:100%;'></div>
+				<div class="swiper-slide"><img src="img/s2.jpg"  style='display: block; margin: auto; width:100%;'></div>
+				<div class="swiper-slide"><img src="img/s3.jpg"  style='display: block; margin: auto; width:100%;'></div>
+				<div class="swiper-slide"><img src="img/s4.jpg"  style='display: block; margin: auto; width:100%;'></div>
+			</div>
+			</div><a href="/single/">Single</a>
+	  <div id="mainblk">
+		<!--<b><a href="/signup/">Sign Up</a> | <a href="/login/">Login</a></b> -->
+		<center><img src="./img/imgspinner.gif" style="display: block; margin: auto; width:50%;"></center>
+		<img src='img/xpertlogo.png' style="visibility:hidden;display:none">
+		</div>
+		
+        </div>
+      </div>
+    </div>
+
+   
+	
+  </div>
+  <!-- Cordova -->
+  <script>
+  function checkState() {
+  var htmlVal, logVal;
+  var stateVal;
+logVal = localStorage.getItem("userPhonex");
+if (logVal)
+{stateVal = "In";}
+else
+{stateVal = "Out";}
+
+//app.statusbar.setBackgroundColor(000);
+
+ var swiper = new Swiper('.swiper-container', {
+		pagination: {
+		el: '.swiper-pagination',
+		type: 'bullets',
+		},
+		spaceBetween: 10,
+		autoplay: {
+		delay: 5000,
+		},
+		loop: true
+		});
+
+
+  
+		if (stateVal == "Out")
+		{
+			htmlVal= "<div class='animated fadeInUp' style='padding:20px'><a class='button button-raised button-big button-outline' style='border-color:#4caf50;color:#4caf50' href='/signup/'><i class='ion ion-ios-pulse'></i> Sign Up</a><br><a class='button button-raised button-big button-outline' style='border-color:#2196f3;color:#2196f3' href='/login/'><i class='ion ion-ios-lock'></i> Login</a></div>";
+		}
+		else
+		{
+		htmlVal= "<div class='block animated fadeInUp'><a class='button button-raised button-big button-outline' href='/applogin/' style='border-color:#4caf50;color:#4caf50'> <i class='ion ion-ios-medkit'></i> Continue to Profile ></a></div>";
+		}
+		setTimeout(function () {document.getElementById("mainblk").innerHTML = htmlVal;}, 1000)
+		
+		
+	}
+  
+  </script>
+    <script src='js/jquery.min.js'></script>
+<script id="rendered-js">
+      $(document).ready(function () {
+  var lazyloadImages;
+
+  if ("IntersectionObserver" in window) {
+    lazyloadImages = document.querySelectorAll(".lazy");
+    var imageObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var image = entry.target;
+          image.src = image.dataset.src;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+        }
+      });
+    });
+
+    lazyloadImages.forEach(function (image) {
+      imageObserver.observe(image);
+    });
+  } else {
+    var lazyloadThrottleTimeout;
+    lazyloadImages = $(".lazy");
+
+    function lazyload() {
+      if (lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }
+
+      lazyloadThrottleTimeout = setTimeout(function () {
+        var scrollTop = $(window).scrollTop();
+        lazyloadImages.each(function () {
+          var el = $(this);
+          if (el.offset().top - scrollTop < window.innerHeight) {
+            var url = el.attr("data-src");
+            el.attr("src", url);
+            el.removeClass("lazy");
+            lazyloadImages = $(".lazy");
+          }
+        });
+        if (lazyloadImages.length == 0) {
+          $(document).off("scroll");
+          $(window).off("resize");
+        }
+      }, 20);
+    }
+
+    $(document).on("scroll", lazyload);
+    $(window).on("resize", lazyload);
+  }
+});
+      
+    </script>
+<script>
+        document.addEventListener('deviceready', onDeviceReady, false);
+        function onDeviceReady() {
+            console.log("device ready");
+            var push = PushNotification.init({
+                android:{}
+            });
+
+            push.on('registration', function (data) {
+                // data.registrationId
+                console.log(data.registrationId);
+				//Set Native Storage
+				localStorage.setItem("pushid", data.registrationId);
+            });
+
+            push.on('notification', function (data) {
+                alert("Title:"+data.title+" Message:"+ data.message);
+				navigator.vibrate(3000);
+            });
+
+            push.on('error', function (e) {
+                console.log(e.message)
+            });
+        }
+    </script>
+  <script src="cordova.js"></script>
+  <script src="js/framework7.min.js"></script>
+  <script src="js/swiper.min.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
